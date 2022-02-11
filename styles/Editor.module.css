@@ -4,26 +4,49 @@
 
 .main {
   min-height: 100vh;
-  padding: 4rem 0;
+  padding: 1rem 0;
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   /* align-items: center; */
 }
 
 .leftPanel {
   display: flex;
-  gap: 2em;
+  gap: 5px;
+  flex: 2;
+  border: 2px solid red;
 }
 
 .mainPanel {
-  flex: 1;
-  /* display: flex;
+  flex: 5;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+  gap: 0.7em;
   background: #000;
+}
+.rightPanel {
+  
+  flex: 1;
+}
+
+.screen, .variantInfo {
+  border-radius: 5px;
+  width: 80%;
+  background: green;
+}
+.screen {
+  height: 60%;
+  /* margin: 0 auto; */
+  
+}
+
+.variantInfo {
+  height: 40%;
+  
 }
 
 .footer {
@@ -125,6 +148,12 @@
 @media (max-width: 600px) {
   .grid {
     width: 100%;
+    flex-direction: column;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .leftPanel {
     flex-direction: column;
   }
 }

@@ -1,8 +1,36 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Editor.module.css'
 import Header from '../components/Header'
-export default function Home() {
+import Footer from '../components/Footer'
+import VariantMenu from '../components/VariantMenu'
+import TraitMenu from '../components/TraitMenu'
+import ToolBar from '../components/ToolBar'
+import FileDropModal from '../components/FileDropModal'
+
+import { useState, useEffect } from 'react'
+
+// UTILs
+import selectTrait from '../utils/selectTrait'
+
+
+export default function Editor() {
+  let [res, setRes] = useState([])
+  useEffect(() => {
+    let test = [
+      ["red", 2],
+      ["green", 2],
+      ["yellow", 3],
+      ["blue", 2],
+    ]
+    let result
+    for (let index = 0; index < 15; index++) {
+      setRes([...res, selectTrait(test)])
+      
+    }
+    // setRes(selectTrait(test))
+  }, [])
+  
   return (
     <div className="">
       <Head>
@@ -11,41 +39,37 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
     <Header/>
-        <header className="bg-white shadow">
+        {/* <header className="bg-white shadow">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
           </div>
-        </header>
+        </header> */}
       <main className={styles.main}>
 
-      {/*
-        This example requires updating your template:
 
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
-      
+      <p>{res.map(i => i + ", " )}</p>
         
  
 
+      <div className={styles.leftPanel}>
+        <TraitMenu/>
+        <VariantMenu/>
+      </div>
+      <div className={styles.mainPanel}>
+      <div className={styles.screen}>
+        
+        </div>
+        <div className={styles.variantInfo}>
 
-       
+        </div>
+      </div>
+      <div className={styles.rightPanel}>
+        <ToolBar/>
+        
+      </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <Footer/>
+        {/* <FileDropModal/> */}
     </div>
   )
 }

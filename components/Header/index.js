@@ -1,12 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from './Header.module.css'
+import { Fragment } from 'react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
-      /* This example requires Tailwind CSS v2.0+ */
-      import { Fragment } from 'react'
-      import { Disclosure, Menu, Transition } from '@headlessui/react'
-      import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-      
       const user = {
         name: 'Tom Cook',
         email: 'tom@example.com',
@@ -14,11 +12,11 @@ import styles from './Header.module.css'
           'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
       }
       const navigation = [
-        { name: 'Dashboard', href: '#', current: true },
-        { name: 'Team', href: '#', current: false },
-        { name: 'Projects', href: '#', current: false },
-        { name: 'Calendar', href: '#', current: false },
-        { name: 'Reports', href: '#', current: false },
+        { name: 'Editor', href: '#', current: true },
+        { name: 'Examples', href: '#', current: false },
+        { name: 'Explore', href: '#', current: false },
+        { name: 'About', href: '#', current: false },
+        
       ]
       const userNavigation = [
         { name: 'Your Profile', href: '#' },
@@ -31,7 +29,7 @@ import styles from './Header.module.css'
       }
       
 
-export default function Home() {
+export default function Header() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
     {({ open }) => (
@@ -40,11 +38,12 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
+                {/* <img
                   className="h-8 w-8"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
-                />
+                /> */}
+                <p>Sai</p>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">

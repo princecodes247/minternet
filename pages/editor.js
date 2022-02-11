@@ -18,17 +18,13 @@ export default function Editor() {
   let [res, setRes] = useState([])
   useEffect(() => {
     let test = [
-      ["red", 2],
-      ["green", 2],
-      ["yellow", 3],
-      ["blue", 2],
+      ["red", 0],
+      ["green", 0],
+      ["yellow", 7],
+      ["blue", 0],
     ]
-    let result
-    for (let index = 0; index < 15; index++) {
-      setRes([...res, selectTrait(test)])
-      
-    }
-    // setRes(selectTrait(test))
+    // let result
+      setRes([selectTrait(test), selectTrait(test), selectTrait(test), selectTrait(test)])
   }, [])
   
   return (
